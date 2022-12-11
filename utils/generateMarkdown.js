@@ -1,5 +1,5 @@
 // If user has chosen a license, this function will generate the badge.
-function renderLicenseBadge(data) {
+function generateBadgeImage(data) {
   if (data.license.toLowerCase() === 'mit') {
     var licenseBadge = `https://img.shields.io/badge/License-MIT-yellow.svg`;
   } else if (data.license.toLowerCase() === 'apache') {
@@ -9,12 +9,13 @@ function renderLicenseBadge(data) {
   } else if (data.license.toLowerCase() === 'isc') {
     var licenseBadge = `https://img.shields.io/badge/License-ISC-blue.svg`;
   };
-  console.log(`license badge test 1: ${licenseBadge}`);
+  // this console log ensures the badge image data is collected
+  // console.log(`license badge test 1: ${licenseBadge}`);
   return licenseBadge;
 }
 
 // If user has chosen a license, this function will generate a link to the license.
-function renderLicenseLink(data) {
+function generateLicenseLink(data) {
   if (data.license.toLowerCase() === 'mit') {
     var licenseLink = `https://opensource.org/licenses/MIT`;
   } else if (data.license.toLowerCase() === 'apache') {
@@ -24,28 +25,35 @@ function renderLicenseLink(data) {
   } else if (data.license.toLowerCase() === 'isc') {
     var licenseLink = `https://opensource.org/licenses/ISC`;
   };
-  console.log(`license link test 1: ${licenseLink}`);
+  // this console log ensures the link data is collected
+  // console.log(`license link test 1: ${licenseLink}`);
   return licenseLink;
 }
 
-// If user has chosen a license, this function creates a section for that license.
-function renderLicenseSection(data, licenseBadge, licenseLink) {
-  renderLicenseBadge(data);
-  console.log(`license badge test 2: ${licenseBadge}`);
-  renderLicenseLink(data);
-  console.log(`license link test 2: ${licenseLink}`);
+function renderBadge(data) {
+  const licenseBadge = generateBadgeImage(data);
+  const licenseLink = generateLicenseLink(data);
+  // these console logs ensure the data is being passed for the badge image and link
+  // console.log(`license badge test 2: ${licenseBadge}`);
+  // console.log(`license link test 2: ${licenseLink}`);
   
-  console.log(`license title test: ${data.license}`);
-    return `## ${data.license} License
-    [![License: ${data.license}](${licenseBadge})](${licenseLink})
-      `;
+  // this console log ensures the data is still being passed from the index.js file
+  // console.log(`license title test: ${data.license}`);
+  return `
+  [![License](${licenseBadge})](${licenseLink})
+  `
+}
+// If user has chosen a license, this function creates a section for that license.
+function renderLicenseSection(data) {
+  const licenseLink = generateLicenseLink(data);
+  return `## ${data.license} License
+  Distributed under the ${data.license} License. Please follow [this link](${licenseLink}) for more information, or click on the badge at the top.`
 }
 
 // This function generates the markdown content for the README
 function generateMarkdown(data) {
   // console.log(`test 2: ${data.title}`);
-  return `# ${data.title}
-
+  return `
   ## Description
   ${data.description}
 
@@ -55,6 +63,7 @@ function generateMarkdown(data) {
   - [How to Contribute](#how-to-contribute)
   - [Tests](#tests)
   - [Questions](#questions)
+  - [${data.license} License](#${data.license}-license)
   
   ## Installation
   ${data.installation}
@@ -75,4 +84,4 @@ function generateMarkdown(data) {
 }
 
 // This ensures the functions are exported to index.js
-module.exports = {generateMarkdown, renderLicenseSection};
+module.exports = {generateMarkdown, renderLicenseSection, renderBadge, generateBadgeImage, generateLicenseLink};

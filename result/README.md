@@ -1,7 +1,9 @@
-# Test
-
+# README Generator Sample
+  [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+    
+  
   ## Description
-  a
+  This is a sample of the README that will generate from the README generator.
 
   ## Table of Contents
   - [Installation](#installation)
@@ -9,20 +11,22 @@
   - [How to Contribute](#how-to-contribute)
   - [Tests](#tests)
   - [Questions](#questions)
+  - [MIT License](#MIT-license)
   
   ## Installation
-  a
+  Download the repo, then run node index.js in the terminal
 
   ## Usage
-  a
+  Please do not steal this code.
 
   ## How to Contribute
-  a
+  Make sure to fork if you want to contribute.
 
   ## Tests
-  a
+  There are console logs throughout; uncomment in order to use.
 
   ## Questions
-  Please visit my [GitHub Page](https://github.com/a) or [email me](mailto:a).
+  Please visit my [GitHub Page](https://github.com/armaples) or [email me](mailto:armaples@ucsc.edu).
   
-  
+  ## MIT License
+  Distributed under the MIT License. Please follow [this link](https://opensource.org/licenses/MIT) for more information, or click on the badge at the top.

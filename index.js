@@ -18,22 +18,40 @@ const questions = [
 
 // This function will create the README file and add data based on functions in the generateMarkdown file.
 function writeToFile(data) {
-    const pageData = generate.generateMarkdown(data);
-    console.log("Page data: " + pageData);
-    console.log(`test 3: ${data.title}`);
-    fs.writeFile(`./result/README.md`, pageData, (err) =>
+    // Creates README file
+    fs.writeFileSync(`./result/README.md`, `# ${data.title}`, (err) =>
         err ? console.log(err) : console.log("README file created!")
     );
 
-    if (data.license.toLowerCase() === 'none') {
-        return
-       } else {
-            const licenseData = generate.renderLicenseSection(data);
-            console.log('Before append: ' + fs.readFileSync('README.md', 'UTF8'));
-            fs.appendFile('README.md', licenseData, (err) =>
-                err ? console.log(err) : console.log("License Section added!")
-            );
-       }
+    // If there is a license, this adds a badge
+    if (data.license.toLowerCase() != 'none') {
+        const badge = generate.renderBadge(data);
+        // this console will check the page content before appending
+        // console.log('Before append: ' + fs.readFileSync('README.md', 'UTF8'));
+        fs.appendFileSync(`./result/README.md`, badge, (err) =>
+            err ? console.log(err) : console.log("License Badge added!")
+        );
+    };
+
+    // This will generate the rest of the page content
+    const pageData = generate.generateMarkdown(data);
+    // these console logs check the page data generated in the generateMarkdown file
+    // console.log("Page data: " + pageData);
+    // console.log(`test 3: ${data.title}`);
+
+    fs.appendFileSync(`./result/README.md`, pageData, (err) =>
+    err ? console.log(err) : console.log("README content added!")
+    );
+
+    // If there is a license, this adds a license section
+    if (data.license.toLowerCase() != 'none') {
+        const licenseData = generate.renderLicenseSection(data);
+        // this console log checks the content on the page before appending
+        // console.log('Before append: ' + fs.readFileSync('README.md', 'UTF8'));
+        fs.appendFileSync(`./result/README.md`, licenseData, (err) =>
+            err ? console.log(err) : console.log("License Section added!")
+        );
+    }
 }
 
 // This function prompts the user for responses to questions in order to generate README.
@@ -88,7 +106,8 @@ function init() {
             },
         ])
         .then((data) => {
-            console.log(`test 1: ${data.title}`)
+            // this console log ensures the data is distributing
+            // console.log(`test 1: ${data.title}`)
             return data
         })
         .then((data) => {
@@ -96,5 +115,5 @@ function init() {
         })
 };
 
-// Function call to initialize app
+// Function call to initialize questions for user + generates README after input
 init();
