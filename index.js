@@ -52,6 +52,8 @@ function writeToFile(data) {
             err ? console.log(err) : console.log("License Section added!")
         );
     }
+
+    console.log("Success! README is now in the results folder.")
 }
 
 // This function prompts the user for responses to questions in order to generate README.

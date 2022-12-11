@@ -46,7 +46,7 @@ function renderBadge(data) {
 // If user has chosen a license, this function creates a section for that license.
 function renderLicenseSection(data) {
   const licenseLink = generateLicenseLink(data);
-  return `## ${data.license} License
+  return `## License
   Distributed under the ${data.license} License. Please follow [this link](${licenseLink}) for more information, or click on the badge at the top.`
 }
 
@@ -63,7 +63,7 @@ function generateMarkdown(data) {
   - [How to Contribute](#how-to-contribute)
   - [Tests](#tests)
   - [Questions](#questions)
-  - [${data.license} License](#${data.license}-license)
+  - [License](#license)
   
   ## Installation
   ${data.installation}
