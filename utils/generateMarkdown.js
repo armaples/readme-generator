@@ -1,6 +1,4 @@
-
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
+// If user has chosen a license, this function will generate the badge.
 function renderLicenseBadge(data) {
   if (data.license.toLowerCase() === 'mit') {
     var licenseBadge = `https://img.shields.io/badge/License-MIT-yellow.svg`;
@@ -15,9 +13,8 @@ function renderLicenseBadge(data) {
   return licenseBadge;
 }
 
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
-function renderLicenseLink(data, licenseLink) {
+// If user has chosen a license, this function will generate a link to the license.
+function renderLicenseLink(data) {
   if (data.license.toLowerCase() === 'mit') {
     var licenseLink = `https://opensource.org/licenses/MIT`;
   } else if (data.license.toLowerCase() === 'apache') {
@@ -31,8 +28,7 @@ function renderLicenseLink(data, licenseLink) {
   return licenseLink;
 }
 
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
+// If user has chosen a license, this function creates a section for that license.
 function renderLicenseSection(data, licenseBadge, licenseLink) {
   renderLicenseBadge(data);
   console.log(`license badge test 2: ${licenseBadge}`);
@@ -45,7 +41,7 @@ function renderLicenseSection(data, licenseBadge, licenseLink) {
       `;
 }
 
-// TODO: Create a function to generate markdown for README
+// This function generates the markdown content for the README
 function generateMarkdown(data) {
   // console.log(`test 2: ${data.title}`);
   return `# ${data.title}
@@ -78,4 +74,5 @@ function generateMarkdown(data) {
   `;
 }
 
+// This ensures the functions are exported to index.js
 module.exports = {generateMarkdown, renderLicenseSection};
