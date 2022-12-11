@@ -21,7 +21,7 @@ function writeToFile(data) {
     const pageData = generate.generateMarkdown(data);
     console.log("Page data: " + pageData);
     console.log(`test 3: ${data.title}`);
-    fs.writeFile('README.md', pageData, (err) =>
+    fs.writeFile(`./result/README.md`, pageData, (err) =>
         err ? console.log(err) : console.log("README file created!")
     );
 

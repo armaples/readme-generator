@@ -1,4 +1,4 @@
-# a
+# Test
 
   ## Description
   a
@@ -25,12 +25,4 @@
   ## Questions
   Please visit my [GitHub Page](https://github.com/a) or [email me](mailto:a).
   
-  ## MIT License
-    [![License: MIT](undefined)](undefined)
-      ## MIT License
-    [![License: MIT](undefined)](undefined)
-      ## MIT License
-    [![License: MIT](undefined)](undefined)
-      ## MIT License
-    [![License: MIT](undefined)](undefined)
-      
+  
