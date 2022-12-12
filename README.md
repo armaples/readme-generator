@@ -7,7 +7,6 @@ This application is meant to provide a straightforward, easy way of creating a R
 ## Table of Contents
 - [Installation](#installation)
 - [Application Preview](#application-previous)
-- [Tests](#tests)
 - [Important Links](#important-links)
 - [MIT License](#mit-license)
   
@@ -16,9 +15,6 @@ Download the repository, then run `node index.js` in the terminal.
 
 ## Application Preview
 [Click here to see a video preview of the application's functionality.](https://drive.google.com/file/d/1DWYcLcX3mekHeZgArAo7y8NYBb3OYxCb/view?usp=sharing)
-
-## Tests
-There are console logs throughout the code that allow you to check to make sure the data is distributing properly. There are associated comments above the console logs that tell the user what that console log does specifically.
 
 ## Important Links
 - [Professional README Guide](https://coding-boot-camp.github.io/full-stack/github/professional-readme-guide) 
